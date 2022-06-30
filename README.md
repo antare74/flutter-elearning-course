@@ -1,4 +1,4 @@
-# Learning Flutter
+# IDK, Just want to learning Flutter right now
 
 ## Table of Contents
 
@@ -8,4 +8,7 @@
 ## About <a name = "about"></a>
 
 Learnings flutter is a mobile application development framework for building native apps for iOS and Android.
-#### expected result:
+#### Expected result:
+![alt text](https://github.com/antare74/flutter-elearning-course/blob/master/assets/preview.png?raw=true)
+
+
