@@ -4,6 +4,7 @@ import 'package:learn_ui_course/model/course.dart';
 class Assets {
   static final imageAvatar = 'assets/avatar.png';
   static final imageBackend = 'assets/backend.jpg';
+  static final imageFrontend = 'assets/frontend.jpg';
 
   static final menuCourse = [
     {

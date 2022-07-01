@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
@@ -43,20 +44,25 @@ class _HomeState extends State<Home> {
                       // crossAxisCount is for the number of items in a row
                       crossAxisCount: 2,
                       // mainAxisSpacing is for the space between items
-                      crossAxisSpacing: 8,
+                      crossAxisSpacing: 16,
                       // mainAxisSpacing is for the space between rows
                       mainAxisSpacing: 8,
                     ),
                     itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue,
-                        ),
-                        child: Image.asset(
+                      if (index == 0) {
+                        return itemGrid(
                           Assets.imageBackend,
-                        ),
-                      );
+                          'Backend',
+                          '12 modules',
+                        );
+                      } else {
+                        return itemGrid(
+                          Assets.imageFrontend,
+                          'Frontend',
+                          '10 modules',
+                        );
+                      }
+                      // return itemGrid(''),
                     },
                   ),
                 ],
@@ -67,6 +73,65 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+
+Widget itemGrid(String image, String title, String subtitle) {
+  log(image);
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(30),
+      color: Colors.white,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black38,
+          blurRadius: 6,
+          offset: Offset(0, 5),
+        ),
+      ],
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: Image.asset(
+              image,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+          ),
+          child: Text(
+            title,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+          ),
+          child: Text(
+            subtitle,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 14,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 16,
+        ),
+      ],
+    ),
+  );
 }
 
 Widget background() {
